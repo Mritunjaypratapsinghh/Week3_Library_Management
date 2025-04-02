@@ -15,5 +15,15 @@ public class BookController {
         this.bookService = bookService;
     }
 
+    @GetMapping(path = "/{bookId}")
+    public BookDTO getBookById(@PathVariable Long bookId){
+        return bookService.getBookById(bookId);
+    }
+
+    @PostMapping
+    public BookDTO createNewBook(@RequestBody BookDTO request){
+        return bookService.createNewBook(request);
+    }
+
 }
 
