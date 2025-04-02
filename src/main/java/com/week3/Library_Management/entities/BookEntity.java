@@ -1,15 +1,14 @@
 package com.week3.Library_Management.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToMany;
+import jakarta.persistence.*;
 
 @Entity
 public class BookEntity {
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
     private String name;
-    @ManyToMany
+    @ManyToOne
     @JoinColumn(name = "Author Of Book")
     private AuthorEntity author;
 }
