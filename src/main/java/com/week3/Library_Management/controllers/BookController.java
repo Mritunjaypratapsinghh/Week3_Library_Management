@@ -25,5 +25,10 @@ public class BookController {
         return bookService.createNewBook(request);
     }
 
+    @PatchMapping(path = "/{bookId}/author/{authorId}")
+    public BookDTO assignAuthorToBook(@PathVariable Long bookId, @PathVariable Long authorId){
+        return bookService.assignAuthorToBook(bookId,authorId);
+    }
+
 }
 

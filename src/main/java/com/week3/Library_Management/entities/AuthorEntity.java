@@ -1,11 +1,13 @@
 package com.week3.Library_Management.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
 import java.util.Set;
 
 @Data
@@ -19,6 +21,6 @@ public class AuthorEntity {
     private Long id;
     private String name;
     @OneToMany(mappedBy = "author")
-    @JsonIgnore
-    private Set<BookEntity> books;
+    @JsonManagedReference
+    private List<BookEntity> books;
 }

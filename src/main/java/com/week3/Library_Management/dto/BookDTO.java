@@ -12,5 +12,5 @@ public class BookDTO {
 
     private Long id;
     private String name;
-    private AuthorDTO author;
+    private AuthorSummaryDTO author;
 }

@@ -5,5 +5,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface AuthorRepositories extends JpaRepository<AuthorEntity,Long>{
+public interface AuthorRepository extends JpaRepository<AuthorEntity,Long>{
 }
