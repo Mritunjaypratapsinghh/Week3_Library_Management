@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+    <!-- Define the log pattern -->
+    <property name="LOG_PATTERN" value="%d{yyyy-MM-dd HH:mm:ss} %-5level %logger{36} - %msg%n"/>
+
+    <!-- Define the location and pattern of the log file -->
+    <appender name="RollingFile" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>/home/mritunjay/Downloads/Week3_Library_Management/logs/</file> <!-- Valid directory path -->
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <!-- Log file rotation pattern (daily logs, maximum 10MB per file) -->
+            <fileNamePattern>/home/mritunjay/Downloads/Week3_Library_Management/logs-%d{yyyy-MM-dd}.log</fileNamePattern> <!-- Valid directory path -->
+            <maxHistory>30</maxHistory> <!-- Retain logs for 30 days -->
+            <maxFileSize>10MB</maxFileSize> <!-- Limit each log file size to 10MB -->
+            <totalSizeCap>3GB</totalSizeCap> <!-- Limit total size of logs -->
+        </rollingPolicy>
+        <encoder>
+            <pattern>${LOG_PATTERN}</pattern>
+        </encoder>
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>INFO</level> <!-- Set minimum log level -->
+        </filter>
+    </appender>
+
+    <!-- Root logger configuration -->
+    <root level="INFO">
+        <appender-ref ref="RollingFile"/>
+    </root>
+
+</configuration>
